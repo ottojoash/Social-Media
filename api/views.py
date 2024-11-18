@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import SocialMediaAccount, ScheduledPost
+from .serializers import SocialMediaAccountSerializer, ScheduledPostSerializer
 
-# Create your views here.
+class SocialMediaAccountViewSet(viewsets.ModelViewSet):
+    queryset = SocialMediaAccount.objects.all()
+    serializer_class = SocialMediaAccountSerializer
+
+class ScheduledPostViewSet(viewsets.ModelViewSet):
+    queryset = ScheduledPost.objects.all()
+    serializer_class = ScheduledPostSerializer
